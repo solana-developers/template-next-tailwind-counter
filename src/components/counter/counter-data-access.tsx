@@ -1,14 +1,14 @@
 'use client'
 
-import {getCounterProgram, getCounterProgramId} from '@project/anchor'
-import {useConnection} from '@solana/wallet-adapter-react'
-import {Cluster, Keypair, PublicKey} from '@solana/web3.js'
-import {useMutation, useQuery} from '@tanstack/react-query'
-import {useMemo} from 'react'
+import { getCounterProgram, getCounterProgramId } from '@project/anchor'
+import { useConnection } from '@solana/wallet-adapter-react'
+import { Cluster, Keypair, PublicKey } from '@solana/web3.js'
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMemo } from 'react'
 import toast from 'react-hot-toast'
-import {useCluster} from '../cluster/cluster-data-access'
-import {useAnchorProvider} from '../solana/solana-provider'
-import {useTransactionToast} from '../ui/ui-layout'
+import { useCluster } from '../cluster/cluster-data-access'
+import { useAnchorProvider } from '../solana/solana-provider'
+import { useTransactionToast } from '../ui/ui-layout'
 
 export function useCounterProgram() {
   const { connection } = useConnection()
@@ -16,7 +16,7 @@ export function useCounterProgram() {
   const transactionToast = useTransactionToast()
   const provider = useAnchorProvider()
   const programId = useMemo(() => getCounterProgramId(cluster.network as Cluster), [cluster])
-  const program = getCounterProgram(provider)
+  const program = useMemo(() => getCounterProgram(provider, programId), [provider, programId])
 
   const accounts = useQuery({
     queryKey: ['counter', 'all', { cluster }],
