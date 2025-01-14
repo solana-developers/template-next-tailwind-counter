@@ -47,10 +47,11 @@
     "rename": {
       "counter": {
         "to": "{{name}}",
-        "paths": [
-          "anchor",
-          "src"
-        ]
+        "paths": ["anchor", "src"]
+      },
+      "placeholder": {
+        "to": "{{name}}",
+        "paths": ["src"]
       }
     },
     "instructions": [
