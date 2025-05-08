@@ -1,5 +1,8 @@
 # template-next-tailwind-counter
 
+> [!WARNING]  
+Templates for create-solana-dapp have moved to [this repo](https://github.com/solana-developers/solana-templates).
+
 ## Getting Started
 
 ### Prerequisites
